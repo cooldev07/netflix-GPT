@@ -14,7 +14,6 @@ import { useSelector } from 'react-redux';
 import {lang} from "../utils/languageConstants"
 const Login = () => {
   const language=useSelector((store)=>store.config.language)
-
     const [isSigninForm,setIsSigninFrom]=useState(true);
     const [errorMessage,setErrorMessage]=useState(null);
     const fullname=useRef(null);
@@ -23,8 +22,14 @@ const Login = () => {
    const dispatch=useDispatch()
 function handleToggle(e){
     setIsSigninFrom((c)=>!c)
+  email.current.value=""
+  password.current.value=""
 }    
-
+function handleTestCredentials(e){
+  e.preventDefault()
+  email.current.value="johndoe@gmail.com"
+  password.current.value="John@2000"
+}
 function handleButtonClick(e){
   e.preventDefault()
   // validate the form
@@ -128,7 +133,14 @@ if(!isSigninForm){
       >
         {isSigninForm ? lang[language].signIn : "Sign Up"}
       </button>
-      
+      {isSigninForm &&
+      <button 
+      onClick={handleTestCredentials}
+      className='p-4 my-6 bg-red-600 w-full rounded-lg hover:bg-red-700 transition duration-300'
+    >
+      Sign in with test credentials
+    </button>
+      }
       {errorMessage && <p className='font-bold text-lg py-2 text-red-600'>{errorMessage}</p>}
       
       <p
