@@ -22,7 +22,7 @@ const Login = () => {
    const dispatch=useDispatch()
 function handleToggle(e){
     setIsSigninFrom((c)=>!c)
-  email.current.value=""
+      email.current.value=""
   password.current.value=""
 }    
 function handleTestCredentials(e){
@@ -88,16 +88,15 @@ if(!isSigninForm){
 
 }
   return (
-    <div>
+    <div className='relative h-screen w-screen'>
       <Header/>
-      <div className='absolute'>
-        <img 
-        className=' h-screen w-screen object-cover'
-        src={backgroundImage} alt='backgroundimage'/>
-      </div>
+      <img 
+    className='absolute top-0 left-0 h-full w-full object-cover z-0'
+    src={backgroundImage} alt='backgroundimage'
+  />
       <form 
       style={{ backgroundColor: 'rgba(22, 22, 22, 0.7)' }}
-      className='z-10 w-[80%] md:w-[60%] lg:w-[40%] xl:w-[34%] absolute p-12 my-36 mx-auto right-0 left-0 text-white rounded-lg'>
+      className='z-10  w-[80%] md:w-[60%] lg:w-[40%] xl:w-[34%] absolute p-4 px-6 my-28 mx-auto right-0 left-0 text-white rounded-lg'>
       
       <h1 className='font-bold text-3xl py-4'>{isSigninForm ? lang[language].signIn : "Sign Up"}</h1>
       
