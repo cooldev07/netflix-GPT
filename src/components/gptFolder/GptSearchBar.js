@@ -20,7 +20,7 @@ return json;
 async function  hanldeGptSearchClick(e){
     e.preventDefault()
     const gptQuery="Act as a movie recommendation system and suggest some movies for the querry :"+searchText.current.value+ " .only give me name of 5 movies,comma separated like the example result given ahead and the result content should only movies text there should no other text.Example Result:avatar,indian 2,star,friends,don"
-    const groq = new Groq({ apiKey:"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",
+    const groq = new Groq({ apiKey:"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",
       dangerouslyAllowBrowser: true 
     });
   const chatCompletion = await getGroqChatCompletion();
